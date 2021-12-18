@@ -1,2 +1,1 @@
-# BlossomingTales
-Application for writers
+An application for writers
