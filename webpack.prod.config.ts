@@ -3,6 +3,8 @@ import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
+import dotenv from 'dotenv';
+import { DefinePlugin } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 const config: Configuration = {
@@ -43,6 +45,9 @@ const config: Configuration = {
     }),
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
+    }),
+    new DefinePlugin({
+      'process.env': JSON.stringify(dotenv.config().parsed)
     }),
     new CleanWebpackPlugin(),
   ],
