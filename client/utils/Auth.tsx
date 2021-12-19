@@ -6,10 +6,11 @@ const auth = getAuth(Firebase);
 
 export const SignIn = () => {
 
-  const signInWithGoogle = () => {
+  const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
+    await signInWithPopup(auth, provider);
   }
+
 
   return (
     <>

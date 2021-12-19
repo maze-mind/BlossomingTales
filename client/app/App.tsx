@@ -19,12 +19,12 @@ const auth = getAuth(Firebase);
 const App = () => {
 
   const [user, loading, error] = useAuthState(auth);
-  console.log(loading, error);
+  console.log(user, loading, error);
 
   return (
     <div className="App">
       <header>
-        <h1>Welcome to BlossomingTales!</h1>
+        <h1>Welcome to Blossoming Tales!</h1>
         <SignOut />
       </header>
 
