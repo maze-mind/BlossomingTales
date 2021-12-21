@@ -1,20 +1,18 @@
-import React from 'react';
-import { getFirestore, collection } from 'firebase/firestore';
-import { useCollection } from 'react-firebase-hooks/firestore';
-import Firebase from '../../utils/Firebase';
+import React from 'react'
+import { getFirestore, collection } from 'firebase/firestore'
+import { useCollection } from 'react-firebase-hooks/firestore'
+import Firebase from './Firebase'
 
-
-const Home = () => {
+const Firestore = () => {
   const [value, loading, error] = useCollection(
     collection(getFirestore(Firebase), 'books'),
     {
-      snapshotListenOptions: { includeMetadataChanges: true },
+      snapshotListenOptions: { includeMetadataChanges: true }
     }
-  );
+  )
 
   return (
-    <div className="home">
-      <h2>This is the home page!</h2>
+    <div id="firestore">
       <h1>Current Firestore Records:</h1>
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
       {loading && <span>Books: Loading...</span>}
@@ -29,7 +27,5 @@ const Home = () => {
         </span>
       )}
     </div>
-  );
-};
-
-export default Home;
+  )
+}
